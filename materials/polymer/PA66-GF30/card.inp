@@ -1,0 +1,7 @@
+** MATLIB card: PA66-GF30, isotropic elastic (DRAFT, dry-as-moulded, 23C)
+** Units: SI-mm (N, mm, t, s, MPa, mJ)
+*Material, name=PA66-GF30
+*Density
+ 1.36e-09,
+*Elastic
+ 9500., 0.35

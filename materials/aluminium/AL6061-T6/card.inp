@@ -1,0 +1,17 @@
+** MATLIB card: Al 6061-T6, elastic-plastic
+** Units: SI-mm (N, mm, t, s, MPa, mJ)
+*Material, name=AL6061-T6
+*Density
+ 2.70e-09,
+*Elastic
+ 68900., 0.33
+*Conductivity
+ 167.,
+*Specific Heat
+ 8.96e+08,
+*Expansion
+ 2.36e-05,
+*Plastic
+ 276.0, 0.000
+ 290.0, 0.020
+ 310.0, 0.080

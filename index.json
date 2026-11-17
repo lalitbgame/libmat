@@ -1,0 +1,123 @@
+{
+  "schema": 1,
+  "generated_utc": "2026-11-16T12:40:04Z",
+  "commit": "fed4e63f20e880e9ed0db0bc96294608454347d5",
+  "materials": [
+    {
+      "id": "AL6061-T6",
+      "name": "Aluminium 6061-T6",
+      "category": "aluminium",
+      "version": "2.0.0",
+      "status": "released",
+      "units": "SI-mm",
+      "material_model": [
+        "elastic",
+        "plastic-isotropic",
+        "thermal"
+      ],
+      "temperature_range_C": [
+        -40,
+        150
+      ],
+      "source": "ASM handbook typical values",
+      "author": "L. Bhola",
+      "approved_by": "CAE material board",
+      "date": "2026-10-01",
+      "tags": [
+        "EDU housing",
+        "heat sink"
+      ],
+      "changelog": [
+        {
+          "version": "1.0.0",
+          "date": "2026-01-10",
+          "note": "Initial elastic card"
+        },
+        {
+          "version": "2.0.0",
+          "date": "2026-10-01",
+          "note": "Added thermal properties; specific heat unit fixed to mJ/(t.K)"
+        }
+      ],
+      "card_path": "materials/aluminium/AL6061-T6/card.inp",
+      "metadata_path": "materials/aluminium/AL6061-T6/metadata.json",
+      "card_sha256": "f3f0f6066687315122d087290c03b70e25a78ae44cb8a31a82532b7224b70a9e",
+      "metadata_sha256": "8e28894cf28995629abcfeb4552dbafc983baa26440a2f52c2106e55ca8f7366"
+    },
+    {
+      "id": "PA66-GF30",
+      "name": "PA66 30% glass fibre, dry-as-moulded",
+      "category": "polymer",
+      "version": "0.1.0",
+      "status": "draft",
+      "units": "SI-mm",
+      "material_model": [
+        "elastic"
+      ],
+      "temperature_range_C": [
+        23,
+        23
+      ],
+      "source": "Supplier datasheet; anisotropy from fibre orientation not included",
+      "author": "L. Bhola",
+      "approved_by": "",
+      "date": "2026-11-16",
+      "tags": [
+        "connector",
+        "cover"
+      ],
+      "changelog": [
+        {
+          "version": "0.1.0",
+          "date": "2026-11-16",
+          "note": "Draft from datasheet, pending test validation"
+        }
+      ],
+      "card_path": "materials/polymer/PA66-GF30/card.inp",
+      "metadata_path": "materials/polymer/PA66-GF30/metadata.json",
+      "card_sha256": "b08201e7b7cb81102235d009d2d6c3dfb47650a9aa0958f3029af1f8dfc52e60",
+      "metadata_sha256": "e5ba197e7e5cdc34e9a83a7f8c7584662f0dbe45f02e42751528b0ce94575ca4"
+    },
+    {
+      "id": "S355",
+      "name": "S355 structural steel",
+      "category": "steel",
+      "version": "1.1.0",
+      "status": "released",
+      "units": "SI-mm",
+      "material_model": [
+        "elastic",
+        "plastic-isotropic",
+        "expansion"
+      ],
+      "temperature_range_C": [
+        -20,
+        100
+      ],
+      "source": "EN 10025-2 minimum values; plastic curve from internal tensile test TT-2025-014",
+      "author": "L. Bhola",
+      "approved_by": "CAE material board",
+      "date": "2026-11-16",
+      "tags": [
+        "bracket",
+        "frame"
+      ],
+      "changelog": [
+        {
+          "version": "1.0.0",
+          "date": "2026-03-02",
+          "note": "Initial elastic card"
+        },
+        {
+          "version": "1.1.0",
+          "date": "2026-11-16",
+          "note": "Added plastic curve from TT-2025-014"
+        }
+      ],
+      "card_path": "materials/steel/S355/card.inp",
+      "metadata_path": "materials/steel/S355/metadata.json",
+      "card_sha256": "38345bd660d2906eab65740c15409424d7212dec994ee91095f1b5aa40c27aa1",
+      "metadata_sha256": "de621659be5e62b448b3c45478739bdccd77a476f9ca4bfa4c645822722ecc7e"
+    }
+  ]
+}

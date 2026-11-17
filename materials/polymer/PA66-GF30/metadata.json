@@ -1,0 +1,18 @@
+{
+  "id": "PA66-GF30",
+  "name": "PA66 30% glass fibre, dry-as-moulded",
+  "category": "polymer",
+  "version": "0.1.0",
+  "status": "draft",
+  "units": "SI-mm",
+  "material_model": ["elastic"],
+  "temperature_range_C": [23, 23],
+  "source": "Supplier datasheet; anisotropy from fibre orientation not included",
+  "author": "L. Bhola",
+  "approved_by": "",
+  "date": "2026-11-16",
+  "tags": ["connector", "cover"],
+  "changelog": [
+    {"version": "0.1.0", "date": "2026-11-16", "note": "Draft from datasheet, pending test validation"}
+  ]
+}

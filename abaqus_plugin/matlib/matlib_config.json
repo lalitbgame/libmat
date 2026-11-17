@@ -1,0 +1,10 @@
+{
+  "gitlab_url": "https://gitlab.example.com",
+  "project": "cae/material-cards",
+  "ref": "main",
+  "token_env": "MATLIB_TOKEN",
+  "verify_ssl": true,
+  "cache_dir": "~/.matlib",
+  "model_units": "SI-mm",
+  "include_drafts": false
+}

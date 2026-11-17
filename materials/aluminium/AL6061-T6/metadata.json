@@ -1,0 +1,19 @@
+{
+  "id": "AL6061-T6",
+  "name": "Aluminium 6061-T6",
+  "category": "aluminium",
+  "version": "2.0.0",
+  "status": "released",
+  "units": "SI-mm",
+  "material_model": ["elastic", "plastic-isotropic", "thermal"],
+  "temperature_range_C": [-40, 150],
+  "source": "ASM handbook typical values",
+  "author": "L. Bhola",
+  "approved_by": "CAE material board",
+  "date": "2026-10-01",
+  "tags": ["EDU housing", "heat sink"],
+  "changelog": [
+    {"version": "1.0.0", "date": "2026-01-10", "note": "Initial elastic card"},
+    {"version": "2.0.0", "date": "2026-10-01", "note": "Added thermal properties; specific heat unit fixed to mJ/(t.K)"}
+  ]
+}

@@ -1,0 +1,54 @@
+# Material card repository pipeline
+#  MR:   validate cards + enforce version bump vs target branch
+#  main: validate, rebuild index.json, commit it back, tag each new card version
+stages: [validate, publish]
+
+image: python:3.11-slim
+
+variables:
+  GIT_DEPTH: 0
+
+before_script:
+  - apt-get update -qq && apt-get install -y -qq git > /dev/null
+
+validate:
+  stage: validate
+  script:
+    - |
+      if [ -n "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME" ]; then
+        git fetch origin "$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
+        python tools/validate_cards.py --base "origin/$CI_MERGE_REQUEST_TARGET_BRANCH_NAME"
+      else
+        python tools/validate_cards.py
+      fi
+  rules:
+    - if: $CI_PIPELINE_SOURCE == "merge_request_event"
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH
+
+publish_index:
+  stage: publish
+  # Needs a project access token with write_repository in CI variable MATLIB_CI_TOKEN
+  script:
+    - python tools/build_index.py
+    - git config user.email "matlib-bot@ci" && git config user.name "matlib-bot"
+    - git remote set-url origin "https://oauth2:${MATLIB_CI_TOKEN}@${CI_SERVER_HOST}/${CI_PROJECT_PATH}.git"
+    - |
+      if ! git diff --quiet -- index.json; then
+        git add index.json
+        git commit -m "Update index.json [skip ci]"
+        git push origin HEAD:"$CI_DEFAULT_BRANCH"
+      fi
+    # One tag per card version, e.g. S355/v1.1.0, so any old card can be fetched by tag
+    - |
+      python - <<'EOF'
+      import json, subprocess
+      tags = set(subprocess.check_output(["git", "tag"]).decode().split())
+      for m in json.load(open("index.json"))["materials"]:
+          t = "%s/v%s" % (m["id"], m["version"])
+          if t not in tags:
+              subprocess.check_call(["git", "tag", t])
+              subprocess.check_call(["git", "push", "origin", t])
+              print("tagged", t)
+      EOF
+  rules:
+    - if: $CI_COMMIT_BRANCH == $CI_DEFAULT_BRANCH && $CI_COMMIT_MESSAGE !~ /\[skip ci\]/

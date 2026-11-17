@@ -1,0 +1,14 @@
+** MATLIB card: S355 structural steel, linear elastic + isotropic plasticity
+** Units: SI-mm (N, mm, t, s, MPa, mJ)
+*Material, name=S355
+*Density
+ 7.85e-09,
+*Elastic
+ 210000., 0.3
+*Expansion
+ 1.2e-05,
+*Plastic
+ 355.0, 0.000
+ 400.0, 0.020
+ 470.0, 0.080
+ 510.0, 0.150
